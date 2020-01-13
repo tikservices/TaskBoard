@@ -1,8 +1,9 @@
 <?php
 require_once('mailConfig.php');
+require_once('helpers.php');
 
 function getServerHost() {
-    $headers = apache_request_headers();
+    $headers = getallheaders();
 
     foreach($headers as $header => $value) {
         if (strtolower($header) == 'host') {
